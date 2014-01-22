@@ -27,7 +27,7 @@ import android.widget.Toast;
 
 public class SearchActivity extends Activity {
 
-	
+	private Intent advancedSearch=null;
 	private EditText etQuery;
 	private GridView gvResults;
 	private Button btnSearch;
@@ -76,15 +76,14 @@ public class SearchActivity extends Activity {
 	public void onClickingAdvancedSearchOptionsBar(MenuItem mi) {
 	     // handle click here
 		Toast.makeText(this, "Clicked!", Toast.LENGTH_SHORT).show();
-		Intent i = new Intent (this, AdvancedSearchOptionsActivity.class);
-		i.putExtra("rsz", 2); // To get the size from the user
-		i.putExtra("color", 1); // To get the color from user
-		startActivity(i);
+		this.advancedSearch = new Intent (this, AdvancedSearchOptionsActivity.class);
+		
+		startActivity(this.advancedSearch);
 	}
 
 	 // Append more data into the adapter
     public void loadMoreData(int offset) {
-        this.makeGoogleImageAPICall();
+        this.makeGoogleImageAPICall(offset);
     }
     
     
@@ -94,15 +93,37 @@ public class SearchActivity extends Activity {
         this.gvResults = (GridView) this.findViewById(R.id.gvResults);
     }
     
-    public void makeGoogleImageAPICall(){
+    public void makeGoogleImageAPICall(int offset){
     	String query = this.etQuery.getText().toString();
     	
     	Toast.makeText(this,"Going to search for " + query, Toast.LENGTH_SHORT).show();
     
+        
     	//https://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=android
+    	String imgtype = "face";
+    	String imgsz = "small";
+    		
+    	if(this.advancedSearch.getStringExtra("imageTypeSelected")!=null){
+    		imgtype = this.advancedSearch.getStringExtra("imageTypeSelected");
+    	}
+    	
+    	if(this.advancedSearch.getStringExtra("imageSizeSelected")!=null){
+    		imgsz = this.advancedSearch.getStringExtra("imageSizeSelected");
+    	}
+    	
+    	
     	AsyncHttpClient client = new AsyncHttpClient();
+    	
     	String url = "https://ajax.googleapis.com/ajax/services/search/images?rsz=8&"
-    			+ "start=" + 0 + "&v=1.0&q=" + Uri.encode(query);
+    			+ "start=" + offset + "&v=1.0&" +
+    			 		"&q=" + Uri.encode(query);
+    	
+    	/*
+    	String url = "https://ajax.googleapis.com/ajax/services/search/images?rsz=8&"
+    			+ "start=" + offset + "&v=1.0&" +
+    			 "imgtype=" +imgtype + "&" +
+    			 "imgsz=" +imgsz + "&" +
+    					"&q=" + Uri.encode(query);*/
     	Log.d("DEBUG",url);
     	client.get(url, 
     			new JsonHttpResponseHandler(){
@@ -127,7 +148,7 @@ public class SearchActivity extends Activity {
     }
     
     public void onImageSearch(View v){
-        this.makeGoogleImageAPICall();
+        this.makeGoogleImageAPICall(0);
     		
     }
     

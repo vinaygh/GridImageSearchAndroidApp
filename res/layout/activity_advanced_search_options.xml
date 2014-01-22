@@ -8,9 +8,98 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".AdvancedSearchOptionsActivity" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
 
+    
+    
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textStyle="bold"
+            android:text="searchTitle"
+            android:id="@+id/textView" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ImageSize"
+            android:id="@+id/ImageSize"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"/>
+    <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageSizeSpinner"
+            android:gravity="right"
+            android:layout_alignTop="@id/ImageSize"
+            android:layout_alignBottom="@id/ImageSize"
+            android:layout_toRightOf="@id/ImageSize"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ColorFilter"
+            android:layout_marginTop="20dp"
+            android:id="@+id/ColorFilter"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/ImageSize"/>
+    <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/colorSelectSpinner"
+            android:gravity="right"
+            android:layout_alignTop="@id/ColorFilter"
+            android:layout_alignBottom="@id/ColorFilter"
+            android:layout_toRightOf="@id/ColorFilter"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="imageTypeStaticString"
+            android:layout_marginTop="20dp"
+            android:id="@+id/ImageType"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/ColorFilter"/>
+    <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageSelectSpinner"
+            android:gravity="right"
+            android:layout_alignTop="@id/ImageType"
+            android:layout_alignBottom="@id/ImageType"
+            android:layout_toRightOf="@id/ImageType"
+            />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="siteFilter"
+            android:id="@+id/siteFilterStaticString"
+            android:layout_marginTop="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/ImageType"/>
+    <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/siteFilter"
+            android:layout_alignTop="@id/siteFilterStaticString"
+            android:layout_alignBottom="@id/siteFilterStaticString"
+            android:layout_toRightOf="@+id/siteFilterStaticString"/>
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/button"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="150dp"
+            android:onClick="getCongifuration"
+            android:layout_below="@id/siteFilterStaticString"
+            android:layout_alignParentLeft="true"/>
+    
+    
 </RelativeLayout>
