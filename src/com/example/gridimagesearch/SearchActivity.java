@@ -114,16 +114,18 @@ public class SearchActivity extends Activity {
     	
     	AsyncHttpClient client = new AsyncHttpClient();
     	
+    	/*
     	String url = "https://ajax.googleapis.com/ajax/services/search/images?rsz=8&"
     			+ "start=" + offset + "&v=1.0&" +
     			 		"&q=" + Uri.encode(query);
+    	*/
     	
-    	/*
+    	
     	String url = "https://ajax.googleapis.com/ajax/services/search/images?rsz=8&"
     			+ "start=" + offset + "&v=1.0&" +
     			 "imgtype=" +imgtype + "&" +
     			 "imgsz=" +imgsz + "&" +
-    					"&q=" + Uri.encode(query);*/
+    					"&q=" + Uri.encode(query);
     	Log.d("DEBUG",url);
     	client.get(url, 
     			new JsonHttpResponseHandler(){

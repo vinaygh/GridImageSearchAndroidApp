@@ -54,10 +54,10 @@ public class AdvancedSearchOptionsActivity extends Activity implements Serializa
         ArrayAdapter<CharSequence> colorAdapter = null;
         ArrayAdapter<CharSequence> typeAdapter = null;
         
-        imageAdapter = ArrayAdapter.createFromResource(this, R.array.sizeArray, R.layout.spinner_layout);
+        /*imageAdapter = ArrayAdapter.createFromResource(this, R.array.sizeArray, R.layout.spinner_layout);
         colorAdapter = ArrayAdapter.createFromResource(this, R.array.colorArray, R.layout.spinner_layout);
         typeAdapter = ArrayAdapter.createFromResource(this, R.array.typeArray, R.layout.spinner_layout);
-
+*/
 
         sizeOfImage.setAdapter(imageAdapter);
         colorFilter.setAdapter(colorAdapter);
