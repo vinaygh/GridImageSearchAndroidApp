@@ -64,7 +64,7 @@ public class SearchActivity extends Activity {
 		gvResults.setOnScrollListener(new EndlessScrollListener() {
 			    @Override
 			    public void onLoadMore(int page, int totalItemsCount) {
-			        loadMoreData(page); 
+			        loadMoreData(page*8); 
  
 			    }
 		        });
